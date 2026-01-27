@@ -33,12 +33,12 @@ export function Home() {
           <img
             src={pixeladi}
             alt="Adrian Darlington"
-            className="h-40 w-40 object-cover group-hover:opacity-0"
+            className="h-40 w-40 object-contain group-hover:opacity-0"
           />
           <img
             src={adiwink}
             alt="Adrian Darlington winking"
-            className="absolute inset-0 h-40 w-40 object-cover opacity-0 group-hover:opacity-100"
+            className="absolute inset-0 h-40 w-40 object-contain opacity-0 group-hover:opacity-100"
           />
         </div>
         <div>
