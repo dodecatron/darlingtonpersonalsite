@@ -28,25 +28,25 @@ export function Home() {
   return (
     <div>
       {/* Profile Section */}
-      <div className="flex items-start gap-6">
-        <div className="group relative h-40 w-40 flex-shrink-0">
+      <div className="flex flex-col items-center gap-4 md:flex-row md:items-start md:gap-6">
+        <div className="group relative h-32 w-32 flex-shrink-0 md:h-40 md:w-40">
           <img
             src={pixeladi}
             alt="Adrian Darlington"
-            className="h-40 w-40 object-contain group-hover:opacity-0"
+            className="h-32 w-32 object-contain group-hover:opacity-0 md:h-40 md:w-40"
           />
           <img
             src={adiwink}
             alt="Adrian Darlington winking"
-            className="absolute inset-0 h-40 w-40 object-contain opacity-0 group-hover:opacity-100"
+            className="absolute inset-0 h-32 w-32 object-contain opacity-0 group-hover:opacity-100 md:h-40 md:w-40"
           />
         </div>
-        <div>
+        <div className="text-center md:text-left">
           <h1 className="mb-2 text-2xl font-medium">Adrian Darlington</h1>
           <p className="mb-4 text-sm leading-relaxed text-gray-600">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
           </p>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center justify-center gap-4 md:justify-start">
             <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-sm hover:underline">
               <Github className="h-4 w-4" />
               Github
@@ -74,7 +74,7 @@ export function Home() {
         <Carousel className="w-full">
           <CarouselContent>
             {spotlightProjects.map((project) => (
-              <CarouselItem key={project.id} className="basis-1/3">
+              <CarouselItem key={project.id} className="basis-full md:basis-1/3">
                 <Link to={`/projects/${project.slug}`}>
                   <div className="rounded-lg border p-4 transition-colors hover:bg-gray-50">
                     <div className="mb-3 h-24 w-full rounded bg-gray-200" />
@@ -85,8 +85,8 @@ export function Home() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="hidden md:flex" />
+          <CarouselNext className="hidden md:flex" />
         </Carousel>
       </section>
 
@@ -98,7 +98,7 @@ export function Home() {
         <Carousel className="w-full">
           <CarouselContent>
             {spotlightCourses.map((course) => (
-              <CarouselItem key={course.id} className="basis-1/3">
+              <CarouselItem key={course.id} className="basis-1/2 md:basis-1/3">
                 <Link to={`/coursework/${course.slug}`}>
                   <div className="rounded-lg border p-4 transition-colors hover:bg-gray-50">
                     <h3 className="font-medium">{course.title}</h3>
@@ -108,8 +108,8 @@ export function Home() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="hidden md:flex" />
+          <CarouselNext className="hidden md:flex" />
         </Carousel>
       </section>
     </div>

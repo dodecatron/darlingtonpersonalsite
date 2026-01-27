@@ -36,7 +36,7 @@ export function Coursework() {
 
       <h1 className="mb-6 text-2xl font-medium">Coursework</h1>
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
         {courses.map((course) => (
           <Link key={course.id} to={`/coursework/${course.slug}`}>
             <div className="rounded-lg border p-4 transition-colors hover:bg-gray-50">
