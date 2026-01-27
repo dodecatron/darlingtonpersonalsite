@@ -12,7 +12,7 @@ import { Resume } from "./pages/Resume"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/darlingtonpersonalsite">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
