@@ -1,6 +1,19 @@
-import { StrictMode } from "react"
+import { StrictMode, useEffect } from "react"
 import { createRoot } from "react-dom/client"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom"
+
+// Handle GitHub Pages 404 redirect
+function RedirectHandler() {
+  const navigate = useNavigate()
+  useEffect(() => {
+    const redirect = sessionStorage.getItem("redirect")
+    if (redirect) {
+      sessionStorage.removeItem("redirect")
+      navigate(redirect, { replace: true })
+    }
+  }, [navigate])
+  return null
+}
 import "./index.css"
 import { Layout } from "./components/layout/Layout"
 import { Home } from "./pages/Home"
@@ -14,6 +27,7 @@ import { KMap } from "./pages/KMap"
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
+      <RedirectHandler />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
